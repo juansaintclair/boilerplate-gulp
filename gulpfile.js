@@ -62,7 +62,9 @@ gulp.task('serve', ['jshint', 'sass', 'uglify'],  function() {
         server: "dist/"
     });
 
-    gulp.watch("css/*.scss", ['sass']);
+    gulp.watch("css/*.scss", ['jshint', 'sass', 'uglify', 'copy']);
+
+	gulp.watch("js/*.js", ['jshint', 'sass', 'uglify', 'copy']);
 
 	gulp.watch("*.html", ['jshint', 'sass', 'uglify', 'copy', browserSync.reload]);
 });
